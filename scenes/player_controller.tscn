@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nq2dylok5w83" path="res://scenes/dash.tscn" id="3_8xumb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_504oc"]
-size = Vector2(20, 14)
+size = Vector2(8, 12)
 
 [sub_resource type="Gradient" id="Gradient_6agyq"]
 
@@ -13,7 +13,7 @@ size = Vector2(20, 14)
 gradient = SubResource("Gradient_6agyq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acsds"]
-size = Vector2(20, 14)
+size = Vector2(14, 16)
 
 [node name="player_controller" type="CharacterBody2D" unique_id=461754436]
 script = ExtResource("1_6agyq")

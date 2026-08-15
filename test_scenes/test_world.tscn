@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://tvjurc3iot1s"]
+[gd_scene format=3 uid="uid://l4narb6f84jg"]
 
 [ext_resource type="PackedScene" uid="uid://b1gaxmn7xuf4t" path="res://scenes/enemy_shopper.tscn" id="1_57scb"]
+[ext_resource type="PackedScene" uid="uid://ci4u1errxqjso" path="res://scenes/player_controller.tscn" id="2_8qv6w"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cgtko"]
 
@@ -8,19 +9,21 @@
 
 [node name="TestWorld" type="Node2D" unique_id=1436817408]
 
-[node name="enemy_shopper" parent="." unique_id=461754436 instance=ExtResource("1_57scb")]
-position = Vector2(0, -12)
+[node name="floor" type="StaticBody2D" parent="." unique_id=149490332]
 
-[node name="Camera2D" type="Camera2D" parent="enemy_shopper" unique_id=431662165]
-position = Vector2(0, 12)
-zoom = Vector2(3.38, 3.38)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=149490332]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1689586356]
+[node name="Sprite2D" type="Sprite2D" parent="floor" unique_id=1689586356]
 scale = Vector2(100, 1)
 texture = SubResource("PlaceholderTexture2D_cgtko")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2009670858]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=2009670858]
 position = Vector2(0, 0.915)
 shape = SubResource("WorldBoundaryShape2D_k6ayw")
+
+[node name="enemy_shopper" parent="." unique_id=461754436 instance=ExtResource("1_57scb")]
+position = Vector2(0, -12)
+
+[node name="player_controller" parent="." unique_id=980544437 instance=ExtResource("2_8qv6w")]
+position = Vector2(-35, -19)
+
+[node name="Camera2D" type="Camera2D" parent="player_controller" unique_id=1333485080]
+zoom = Vector2(2, 2)
