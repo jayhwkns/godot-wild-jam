@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bia1l63vk2quo"]
+
+[ext_resource type="Script" uid="uid://bjpmbpo46ae43" path="res://scripts/health_bar.gd" id="1_1bvlm"]
+
+[node name="HealthBar" type="ProgressBar" unique_id=1658354716]
+offset_left = -62.0
+offset_top = -6.0
+offset_right = 62.0
+offset_bottom = 18.0
+scale = Vector2(1, 0.5)
+max_value = 10.0
+value = 5.0
+show_percentage = false
+script = ExtResource("1_1bvlm")
