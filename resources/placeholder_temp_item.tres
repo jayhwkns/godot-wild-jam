@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TempItem" format=3 uid="uid://by1tkey7gxh6b"]
+
+[ext_resource type="Texture2D" uid="uid://cplqg8buvi5jw" path="res://art/placeholder/milk.bmp" id="1_hleqq"]
+[ext_resource type="Script" uid="uid://d7foh3snwcn0" path="res://code/temp_item.gd" id="2_tmpor"]
+
+[resource]
+script = ExtResource("2_tmpor")
+lasts_for = 5.0
+id = "PLACEHOLDER_TEMP_ITEM"
+display_name = "Placeholder Temporary Item"
+description = "This item doesn't do anything, but it won't not do anything for long."
+icon = ExtResource("1_hleqq")
+metadata/_custom_type_script = "uid://d7foh3snwcn0"
