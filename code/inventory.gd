@@ -39,3 +39,9 @@ func keep(item: Item) -> void:
 	item = keep_items.add(item)
 	item.on_pickup()
 	keep_display.display_set(keep_items)
+
+func _process(delta: float) -> void:
+	for item in cart_items.items:
+		item.process(delta)
+	for item in keep_items.items:
+		item.process(delta)

@@ -19,3 +19,7 @@ func on_pickup() -> void:
 
 func on_drop() -> void:
 	count -= 1
+
+## Called every frame when in inventory.
+func process(_delta: float) -> void:
+	pass

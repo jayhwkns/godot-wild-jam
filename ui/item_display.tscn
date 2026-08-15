@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dkg64eyv8wkh6"]
 
 [ext_resource type="Texture2D" uid="uid://dqonqdak0wglh" path="res://art/placeholder/PLACEHOLDER_ITEM.bmp" id="1_i7hfv"]
+[ext_resource type="Script" uid="uid://0dv56glo1epo" path="res://code/item_display.gd" id="2_ocrt6"]
 
-[node name="ItemIcon" type="TextureRect" unique_id=1916642245]
+[node name="ItemDisplay" type="TextureRect" unique_id=1916642245]
 texture = ExtResource("1_i7hfv")
+script = ExtResource("2_ocrt6")
 
 [node name="Label" type="Label" parent="." unique_id=1742055902]
 layout_mode = 1
@@ -20,3 +22,16 @@ grow_vertical = 0
 text = "x1"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1022326341]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.878
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.09600067
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+show_percentage = false

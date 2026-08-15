@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://devpla2fdo437" path="res://ui/inventory.tscn" id="1_1hgtl"]
 [ext_resource type="Script" uid="uid://ilaqlya651d7" path="res://code/inventory_test_panel.gd" id="2_2kqyw"]
-[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/test_item.tres" id="3_yytu4"]
+[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/placeholder_item.tres" id="3_yytu4"]
+[ext_resource type="Resource" uid="uid://by1tkey7gxh6b" path="res://resources/placeholder_temp_item.tres" id="4_x1y07"]
 
 [node name="TestInventory" type="Node2D" unique_id=979048003]
 
@@ -20,14 +21,19 @@ offset_left = -660.0
 offset_top = -39.0
 grow_horizontal = 0
 grow_vertical = 0
-columns = 3
+columns = 4
 script = ExtResource("2_2kqyw")
 item = ExtResource("3_yytu4")
+temp_item = ExtResource("4_x1y07")
 inventory = NodePath("../Inventory")
 
 [node name="Add" type="Button" parent="CanvasLayer/TestPanel" unique_id=1262149184]
 layout_mode = 2
 text = "add item"
+
+[node name="AddTemp" type="Button" parent="CanvasLayer/TestPanel" unique_id=624380340]
+layout_mode = 2
+text = "add temporary item"
 
 [node name="Remove" type="Button" parent="CanvasLayer/TestPanel" unique_id=1173595889]
 layout_mode = 2
