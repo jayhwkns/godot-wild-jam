@@ -14,7 +14,7 @@ func add(item: Item) -> Item:
 	return item
 
 func remove(item: Item) -> bool:
-	var index = items.find_custom(func(i: Item): i.id == item.id)
+	var index = items.find_custom(func(i: Item): return i.id == item.id)
 	if index == -1:
 		return false
 	items.remove_at(index)
@@ -22,7 +22,7 @@ func remove(item: Item) -> bool:
 	return true
 
 func get_item(item: Item) -> Item:
-	var from_set = items.filter(func(i: Item): i.id == item.id)
+	var from_set = items.filter(func(i: Item): return i.id == item.id)
 	if from_set.is_empty():
 		return null
 	return from_set[0]
