@@ -11,7 +11,8 @@ func add(item: Item) -> Item:
 	var from_set = get_item(item)
 	if from_set == null:
 		items.append(item)
-	return item
+		return item
+	return from_set
 
 func remove(item: Item) -> bool:
 	var index = items.find_custom(func(i: Item): return i.id == item.id)

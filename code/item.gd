@@ -12,13 +12,10 @@ extends Resource
 
 @export var icon: Texture2D = preload("res://art/placeholder/PLACEHOLDER_ITEM.bmp")
 
-var _count: int = 0
+var count: int = 0
 
 func on_pickup() -> void:
-	_count += 1
+	count += 1
 
 func on_drop() -> void:
-	_count -= 1
-
-func count() -> int:
-	return _count
+	count -= 1
