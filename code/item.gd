@@ -10,7 +10,7 @@ extends Resource
 	"This item doesn't do anything. It was never meant to."
 )
 
-@export var icon: ImageTexture
+@export var icon: Texture2D = preload("res://art/placeholder/PLACEHOLDER_ITEM.bmp")
 
 var _count: int = 0
 
