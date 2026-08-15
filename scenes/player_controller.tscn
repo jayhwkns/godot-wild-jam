@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ci4u1errxqjso"]
+
+[ext_resource type="Script" uid="uid://bou886eel1uqg" path="res://scripts/player_controller.gd" id="1_6agyq"]
+[ext_resource type="PackedScene" uid="uid://cjwmbjkj7a2hw" path="res://scenes/hurtbox.tscn" id="2_8xumb"]
+[ext_resource type="PackedScene" uid="uid://nq2dylok5w83" path="res://scenes/dash.tscn" id="3_8xumb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_504oc"]
+size = Vector2(20, 14)
+
+[sub_resource type="Gradient" id="Gradient_6agyq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dm0af"]
+gradient = SubResource("Gradient_6agyq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acsds"]
+size = Vector2(20, 14)
+
+[node name="player_controller" type="CharacterBody2D" unique_id=461754436]
+script = ExtResource("1_6agyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056766594]
+shape = SubResource("RectangleShape2D_504oc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506906784]
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(0.17968749, 0.2265624)
+texture = SubResource("GradientTexture2D_dm0af")
+
+[node name="hurtbox" parent="." unique_id=906765605 instance=ExtResource("2_8xumb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1721954025]
+shape = SubResource("RectangleShape2D_acsds")
+debug_color = Color(0, 0.58431375, 0.77254903, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=853390270]
+
+[node name="Dash" parent="." unique_id=1921410922 instance=ExtResource("3_8xumb")]
+
+[connection signal="hurted" from="hurtbox" to="." method="_on_hurtbox_hurted"]
