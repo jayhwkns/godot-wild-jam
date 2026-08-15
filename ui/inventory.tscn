@@ -1,6 +1,69 @@
 [gd_scene format=3 uid="uid://devpla2fdo437"]
 
-[ext_resource type="Script" uid="uid://cp6r7oop6u2g6" path="res://code/inventory.gd" id="1_kosh3"]
+[ext_resource type="Texture2D" uid="uid://dqonqdak0wglh" path="res://art/placeholder/PLACEHOLDER_ITEM.bmp" id="1_kosh3"]
 
-[node name="Node2D" type="Node2D" unique_id=648371499]
-script = ExtResource("1_kosh3")
+[node name="Inventory" type="Control" unique_id=82287051]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cart" type="Panel" parent="." unique_id=110118074]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.333
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="Cart" unique_id=925046343]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cart"
+
+[node name="GridContainer" type="GridContainer" parent="Cart" unique_id=2101856270]
+layout_mode = 1
+offset_top = 24.0
+offset_right = 364.0
+offset_bottom = 100.0
+columns = 8
+
+[node name="Item Icon" type="TextureRect" parent="Cart/GridContainer" unique_id=1446189226]
+layout_mode = 2
+texture = ExtResource("1_kosh3")
+
+[node name="Label" type="Label" parent="Cart/GridContainer/Item Icon" unique_id=698807833]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -17.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Keep" type="Panel" parent="." unique_id=66356354]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="Keep" unique_id=1823174601]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Keep"
