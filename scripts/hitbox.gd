@@ -14,7 +14,7 @@ func _init(_attacker_stats: Stats, _hitbox_lifetime: float, _shape: Shape2D) -> 
 	shape = _shape
 
 func _ready() -> void:
-	monitorable = false
+	monitorable = false # Only detect don't recieve
 	area_entered.connect(_on_area_entered)
 	
 	if shape:
@@ -32,5 +32,5 @@ func _ready() -> void:
 			set_collision_mask_value(2, true)
 
 func _on_area_entered(area: Area2D):
-	if area is HurtBox:
-		area.get_damage(attacker_stats.current_damage)
+	if area.has_method("recieve_hit"):
+		area.recieve_hit(attacker_stats.current_damage)
