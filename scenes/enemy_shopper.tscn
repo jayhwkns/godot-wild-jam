@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dnbdga3ngk3p6" path="res://scripts/enemy_shopper.gd" id="1_k6ayw"]
 [ext_resource type="Script" uid="uid://dybahhf0pviqe" path="res://scripts/stats.gd" id="2_d26ks"]
-[ext_resource type="PackedScene" uid="uid://cjwmbjkj7a2hw" path="res://scenes/hurt_box.tscn" id="2_vjddg"]
-[ext_resource type="PackedScene" uid="uid://boawwlp5xggiv" path="res://scenes/hitbox.tscn" id="2_y1hk0"]
+[ext_resource type="PackedScene" uid="uid://cjwmbjkj7a2hw" path="res://scenes/hurtbox.tscn" id="2_vjddg"]
+[ext_resource type="PackedScene" uid="uid://biyqp7dtaasgn" path="res://scenes/hitbox.tscn" id="2_y1hk0"]
 [ext_resource type="PackedScene" uid="uid://bia1l63vk2quo" path="res://scenes/health_bar.tscn" id="3_2mgso"]
 
 [sub_resource type="Resource" id="Resource_y1hk0"]
@@ -16,8 +16,11 @@ size = Vector2(8, 10)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_504oc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_acsds"]
-size = Vector2(12, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_504oc"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4vvc"]
+radius = 5.0
 
 [node name="enemy_shopper" type="CharacterBody2D" unique_id=461754436]
 script = ExtResource("1_k6ayw")
@@ -27,23 +30,8 @@ stats = SubResource("Resource_y1hk0")
 shape = SubResource("RectangleShape2D_504oc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506906784]
-position = Vector2(0, 4)
 scale = Vector2(10.5, 11.75)
 texture = SubResource("PlaceholderTexture2D_504oc")
-
-[node name="HitBox" parent="." unique_id=917340276 instance=ExtResource("2_y1hk0")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1086449587]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_acsds")
-debug_color = Color(0, 0.58431375, 0.77254903, 0.41960785)
-
-[node name="HurtBox" parent="." unique_id=906765605 instance=ExtResource("2_vjddg")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1721954025]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_acsds")
-debug_color = Color(0, 0.58431375, 0.77254903, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=853390270]
 
@@ -53,5 +41,16 @@ offset_top = -5.0
 offset_right = 39.243244
 offset_bottom = 19.0
 scale = Vector2(0.185, 0.074)
+show_percentage = true
+
+[node name="Hitbox" parent="." unique_id=1552246186 instance=ExtResource("2_y1hk0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=856840921]
+shape = SubResource("CircleShape2D_504oc")
+
+[node name="hurtbox" parent="." unique_id=906765605 instance=ExtResource("2_vjddg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=2106445681]
+shape = SubResource("CircleShape2D_p4vvc")
 
 [connection signal="ready" from="." to="." method="_on_ready"]

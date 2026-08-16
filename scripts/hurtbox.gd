@@ -3,9 +3,10 @@ class_name HurtBox extends Area2D
 # Recives a detection/overlap from a hitbox 
 # and then passes that signal to the parent where the parent handles the action
 
-@onready var owner_stats: Stats = owner.stats 
+var owner_stats: Stats
 
-func _ready() -> void:
+func setup(_owner_stats: Stats) -> void:
+	owner_stats = _owner_stats
 	monitoring = false # Only recieve don't detect
 
 	# Disable default layer/mask detection
@@ -18,4 +19,4 @@ func _ready() -> void:
 			set_collision_layer_value(2, true)
 			
 func receive_hit(damage: int):
-	owner.stats.take_damage(damage)
+	owner_stats.take_damage(damage)

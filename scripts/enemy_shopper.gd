@@ -2,9 +2,10 @@ extends CharacterBody2D
 class_name enemy_shopper
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var hitbox: HitBox = $Hitbox
+@onready var hurtbox: HurtBox = $hurtbox
 
 @export var stats: Stats
-
 var direction: Vector2 = Vector2.LEFT # Always go left
 const GRAVITY = 900
 var knockback_force = 200
@@ -20,6 +21,10 @@ func _ready() -> void:
 	health_bar.max_value = stats.current_max_health
 	health_bar.min_value = 0
 	health_bar.value = stats.current_health
+	stats.faction = Stats.Faction.ENEMY_SHOPPER
+	
+	hurtbox.setup(stats)
+	hitbox.setup(stats, 0.5)
 
 func _physics_process(delta):
 	if !is_on_floor():
