@@ -23,5 +23,6 @@ func setup(_attacker_stats: Stats, _hitbox_lifetime: float) -> void:
 			set_collision_mask_value(2, true)
 
 func _on_area_entered(area: Area2D):
+	print(Stats.Faction.find_key(attacker_stats.faction))
 	if area.has_method("receive_hit"):
 		area.receive_hit(attacker_stats.current_damage)

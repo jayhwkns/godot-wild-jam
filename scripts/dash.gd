@@ -1,6 +1,7 @@
 extends Node2D
 @onready var duration_timer: Timer = $DurationTimer
 @onready var cool_down_timer: Timer = $CoolDownTimer
+@onready var hitbox: HitBox = $"../Hitbox"
 
 var dash_duration: float = 0.2
 var dash_cool_down_duration: float = 1

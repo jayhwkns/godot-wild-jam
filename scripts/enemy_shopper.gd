@@ -17,10 +17,7 @@ var is_taking_damage: bool = false
 var is_dealing_damage: bool = false
 
 func _ready() -> void:
-	stats.current_health = stats.current_max_health
-	health_bar.max_value = stats.current_max_health
-	health_bar.min_value = 0
-	health_bar.value = stats.current_health
+	stats.setup_stats()
 	stats.faction = Stats.Faction.ENEMY_SHOPPER
 	
 	hurtbox.setup(stats)
@@ -30,7 +27,10 @@ func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += GRAVITY * delta
 		velocity.x = 0
-
+	
+	if stats.current_health <= 0:
+		die()
+		
 	move(delta)
 	handle_animation()
 	move_and_slide()
@@ -49,20 +49,6 @@ func handle_animation():
 		if direction.x == 1:
 			animated_sprite.flip_h = false
 
-func _on_hurt_box_hurted(damage: int) -> void:
-	is_taking_damage = true
-	stats.current_health -= damage
-	health_bar.value = damage	# assign new health value
-
-	if stats.current_health <= 0:
-		die()
-	
-	# NOT IMPLEMENTED YET...
-	await animated_sprite.animation_finished
-	is_taking_damage = false
-
 # DROP SOME MONEEEYYYY
 func die():
-	is_dead = true
 	self.queue_free()
-	

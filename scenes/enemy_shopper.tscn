@@ -1,35 +1,55 @@
 [gd_scene format=3 uid="uid://b1gaxmn7xuf4t"]
 
 [ext_resource type="Script" uid="uid://dnbdga3ngk3p6" path="res://scripts/enemy_shopper.gd" id="1_k6ayw"]
+[ext_resource type="Script" uid="uid://dybahhf0pviqe" path="res://scripts/stats.gd" id="2_d26ks"]
 [ext_resource type="PackedScene" uid="uid://cjwmbjkj7a2hw" path="res://scenes/hurtbox.tscn" id="2_vjddg"]
+[ext_resource type="PackedScene" uid="uid://biyqp7dtaasgn" path="res://scenes/hitbox.tscn" id="2_y1hk0"]
+[ext_resource type="PackedScene" uid="uid://bia1l63vk2quo" path="res://scenes/health_bar.tscn" id="3_2mgso"]
+
+[sub_resource type="Resource" id="Resource_y1hk0"]
+script = ExtResource("2_d26ks")
+faction = 1
+metadata/_custom_type_script = "uid://dybahhf0pviqe"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_504oc"]
 size = Vector2(8, 10)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_504oc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_acsds"]
-size = Vector2(12, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_acsds"]
+radius = 5.3851647
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_504oc"]
+radius = 5.0
 
 [node name="enemy_shopper" type="CharacterBody2D" unique_id=461754436]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_k6ayw")
+stats = SubResource("Resource_y1hk0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056766594]
-position = Vector2(0, 4)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_504oc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506906784]
-position = Vector2(0, 4)
 scale = Vector2(10.5, 11.75)
 texture = SubResource("PlaceholderTexture2D_504oc")
 
-[node name="hurtbox" parent="." unique_id=906765605 instance=ExtResource("2_vjddg")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1721954025]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_acsds")
-debug_color = Color(0, 0.58431375, 0.77254903, 0.41960785)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=853390270]
 
-[connection signal="hurted" from="hurtbox" to="." method="_on_hurtbox_hurted"]
+[node name="hurtbox" parent="." unique_id=906765605 instance=ExtResource("2_vjddg")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hurtbox" unique_id=1423948416]
+shape = SubResource("CircleShape2D_acsds")
+
+[node name="Hitbox" parent="." unique_id=1552246186 instance=ExtResource("2_y1hk0")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=1795171483]
+shape = SubResource("CircleShape2D_504oc")
+
+[node name="HealthBar" parent="." unique_id=1658354716 instance=ExtResource("3_2mgso")]
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 7.0
+offset_bottom = -5.0
