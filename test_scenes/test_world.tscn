@@ -11,7 +11,8 @@
 [node name="enemy_shopper" parent="." unique_id=461754436 instance=ExtResource("1_57scb")]
 position = Vector2(0, -12)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=431662165]
+[node name="Camera2D" type="Camera2D" parent="enemy_shopper" unique_id=431662165]
+position = Vector2(0, 12)
 zoom = Vector2(3.38, 3.38)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=149490332]
