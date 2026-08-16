@@ -1,11 +1,16 @@
 extends Node
 
-var _item: Item
+var _item: Item = null
+
+signal item_selected(item: Item)
 
 func link_item(item: Item):
 	_item = item
 	
 	self.icon = item.icon
+
+func select():
+	item_selected.emit(_item)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
