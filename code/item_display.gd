@@ -5,10 +5,12 @@ var _item: Item
 func link_item(item: Item):
 	_item = item
 	
-	self.texture = item.icon
+	self.icon = item.icon
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if _item == null:
+		return
 	$Label.text = "x%d" % _item.count
 	if "time_left" in _item:
 		$ProgressBar.value = _item.time_left / _item.lasts_for
