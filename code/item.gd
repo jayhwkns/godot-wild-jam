@@ -12,6 +12,8 @@ extends Resource
 
 @export var icon: Texture2D = preload("res://art/placeholder/PLACEHOLDER_ITEM.bmp")
 
+@export var price: int = 1
+
 var count: int = 0
 
 func on_pickup() -> void:

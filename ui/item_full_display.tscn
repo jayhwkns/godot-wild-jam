@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://sqi3dq721wsq"]
+
+[ext_resource type="Script" uid="uid://dsyguony2342a" path="res://code/item_full_display.gd" id="1_pseys"]
+
+[node name="ItemFullDisplay" type="Control" unique_id=1740540943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pseys")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1150855497]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.666
+grow_horizontal = 2
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="." unique_id=1064225445]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.666
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ItemInfo" type="RichTextLabel" parent="Panel" unique_id=1138987957]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]Select Item[/b]
+"
+
+[node name="Price" type="RichTextLabel" parent="Panel" unique_id=159743456]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -46.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true

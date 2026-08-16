@@ -14,7 +14,7 @@ func display_set(items: ItemSet):
 		if item_selected.get_connections().is_empty():
 			item_icon.disabled = true
 		else:
-			item_icon.selected.connect(func(i): item_selected.emit(i))
+			item_icon.item_selected.connect(func(i): item_selected.emit(i))
 		add_child(item_icon)
 	
 func clear():

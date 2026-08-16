@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bk4c4r0ddxjbm"]
 
 [ext_resource type="PackedScene" uid="uid://devpla2fdo437" path="res://ui/inventory.tscn" id="1_dhqdt"]
+[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://code/item.gd" id="2_t4ugh"]
 [ext_resource type="PackedScene" uid="uid://cm2b3rservndq" path="res://ui/item_set_display.tscn" id="2_v0c6q"]
+[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/placeholder_item.tres" id="3_ws1yc"]
+[ext_resource type="Resource" uid="uid://by1tkey7gxh6b" path="res://resources/placeholder_temp_item.tres" id="4_eg4k4"]
+[ext_resource type="PackedScene" uid="uid://sqi3dq721wsq" path="res://ui/item_full_display.tscn" id="6_ws1yc"]
 
 [node name="CheckOutPhase" type="Node2D" unique_id=1350903891]
 
@@ -9,7 +13,9 @@
 
 [node name="Inventory" parent="CanvasLayer" unique_id=82287051 node_paths=PackedStringArray("cart_displays") instance=ExtResource("1_dhqdt")]
 visible = false
+process = false
 cart_displays = [NodePath("../Cart/ItemSetDisplay")]
+initial_cart_items = Array[ExtResource("2_t4ugh")]([ExtResource("3_ws1yc"), ExtResource("4_eg4k4")])
 
 [node name="Cart" type="Panel" parent="CanvasLayer" unique_id=1550577413]
 anchors_preset = 2
@@ -24,9 +30,23 @@ grow_vertical = 0
 [node name="ItemSetDisplay" parent="CanvasLayer/Cart" unique_id=290287126 instance=ExtResource("2_v0c6q")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Cart" unique_id=1980615607]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Cart"
+
+[node name="ItemFullDisplay" parent="CanvasLayer" unique_id=1740540943 instance=ExtResource("6_ws1yc")]
+offset_left = 675.0
+offset_top = 116.0
+offset_right = -12.0
+offset_bottom = -10.0
+
+[connection signal="item_selected" from="CanvasLayer/Cart/ItemSetDisplay" to="CanvasLayer/ItemFullDisplay" method="display_item"]

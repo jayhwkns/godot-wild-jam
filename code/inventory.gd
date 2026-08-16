@@ -2,6 +2,9 @@
 class_name Inventory
 extends Node
 
+## Whether `process` should be run for items.
+@export var process = true
+
 ## ItemSetDisplays to display cart items. Child is added automatically.
 @export var cart_displays: Array[ItemSetDisplay] = []
 ## ItemSetDisplays to display permanent items. Child is added automatically.
@@ -68,6 +71,8 @@ func display_keep():
 		keep_display.display_set(keep_items)
 
 func _process(delta: float) -> void:
+	if !process:
+		return
 	for item in cart_items.items:
 		item.process(delta)
 	for item in keep_items.items:
