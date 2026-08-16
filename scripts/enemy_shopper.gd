@@ -1,13 +1,9 @@
 extends CharacterBody2D
 class_name enemy_shopper
-@onready var game_manager: Node = %game_manager
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: ProgressBar = $HealthBar
 
-@export var speed: int = 10
-var health: int = 10
-@export var health_max: int = 10
-var health_min: int = 0
+@export var stats: Stats
 
 var direction: Vector2 = Vector2.LEFT # Always go left
 const GRAVITY = 900
@@ -19,6 +15,11 @@ var is_dead: bool = false
 var is_taking_damage: bool = false
 var is_dealing_damage: bool = false
 
+func _ready() -> void:
+	stats.current_health = stats.current_max_health
+	health_bar.max_value = stats.current_max_health
+	health_bar.min_value = 0
+	health_bar.value = stats.current_health
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -33,12 +34,11 @@ func move(delta):
 	if is_dead:
 		velocity.x = 0
 	else:
-		velocity += direction * speed * delta
+		velocity += direction * stats.current_speed * delta
 	
 	
 func handle_animation():
 	if !is_dead and !is_taking_damage and !is_dealing_damage:
-		animated_sprite.play("walk")
 		if direction.x == -1:
 			animated_sprite.flip_h = true
 		if direction.x == 1:
@@ -46,10 +46,10 @@ func handle_animation():
 
 func _on_hurt_box_hurted(damage: int) -> void:
 	is_taking_damage = true
-	health -= damage
+	stats.current_health -= damage
 	health_bar.value = damage	# assign new health value
 
-	if health <= 0:
+	if stats.current_health <= 0:
 		die()
 	
 	# NOT IMPLEMENTED YET...
@@ -61,10 +61,3 @@ func die():
 	is_dead = true
 	self.queue_free()
 	
-
-
-func _ready() -> void:
-	health = health_max
-	health_bar.max_value = health_max
-	health_bar.min_value = 0
-	health_bar.value = health

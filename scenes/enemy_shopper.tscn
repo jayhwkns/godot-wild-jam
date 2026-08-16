@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://b1gaxmn7xuf4t"]
 
 [ext_resource type="Script" uid="uid://dnbdga3ngk3p6" path="res://scripts/enemy_shopper.gd" id="1_k6ayw"]
+[ext_resource type="Script" uid="uid://dybahhf0pviqe" path="res://scripts/stats.gd" id="2_d26ks"]
 [ext_resource type="PackedScene" uid="uid://cjwmbjkj7a2hw" path="res://scenes/hurt_box.tscn" id="2_vjddg"]
 [ext_resource type="PackedScene" uid="uid://boawwlp5xggiv" path="res://scenes/hit_box.tscn" id="2_y1hk0"]
 [ext_resource type="PackedScene" uid="uid://bia1l63vk2quo" path="res://scenes/health_bar.tscn" id="3_2mgso"]
+
+[sub_resource type="Resource" id="Resource_y1hk0"]
+script = ExtResource("2_d26ks")
+faction = 1
+metadata/_custom_type_script = "uid://dybahhf0pviqe"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_504oc"]
 size = Vector2(8, 10)
@@ -15,6 +21,7 @@ size = Vector2(12, 12)
 
 [node name="enemy_shopper" type="CharacterBody2D" unique_id=461754436]
 script = ExtResource("1_k6ayw")
+stats = SubResource("Resource_y1hk0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056766594]
 shape = SubResource("RectangleShape2D_504oc")
