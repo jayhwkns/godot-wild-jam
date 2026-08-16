@@ -16,17 +16,20 @@ size = Vector2(8, 10)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_504oc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_504oc"]
-radius = 4.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_acsds"]
+radius = 5.3851647
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p4vvc"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_504oc"]
 radius = 5.0
 
 [node name="enemy_shopper" type="CharacterBody2D" unique_id=461754436]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_k6ayw")
 stats = SubResource("Resource_y1hk0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056766594]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_504oc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506906784]
@@ -35,22 +38,18 @@ texture = SubResource("PlaceholderTexture2D_504oc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=853390270]
 
-[node name="HealthBar" parent="." unique_id=1658354716 instance=ExtResource("3_2mgso")]
-offset_left = -4.0
-offset_top = -5.0
-offset_right = 39.243244
-offset_bottom = 19.0
-scale = Vector2(0.185, 0.074)
-show_percentage = true
+[node name="hurtbox" parent="." unique_id=906765605 instance=ExtResource("2_vjddg")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hurtbox" unique_id=1423948416]
+shape = SubResource("CircleShape2D_acsds")
 
 [node name="Hitbox" parent="." unique_id=1552246186 instance=ExtResource("2_y1hk0")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=856840921]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=1795171483]
 shape = SubResource("CircleShape2D_504oc")
 
-[node name="hurtbox" parent="." unique_id=906765605 instance=ExtResource("2_vjddg")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=2106445681]
-shape = SubResource("CircleShape2D_p4vvc")
-
-[connection signal="ready" from="." to="." method="_on_ready"]
+[node name="HealthBar" parent="." unique_id=1658354716 instance=ExtResource("3_2mgso")]
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 7.0
+offset_bottom = -5.0

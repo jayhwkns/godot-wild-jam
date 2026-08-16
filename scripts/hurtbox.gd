@@ -14,9 +14,10 @@ func setup(_owner_stats: Stats) -> void:
 	set_collision_mask_value(1, false)
 	match owner_stats.faction:
 		Stats.Faction.PLAYER:
-			set_collision_layer_value(3, true)
-		Stats.Faction.ENEMY_SHOPPER:
 			set_collision_layer_value(2, true)
+		Stats.Faction.ENEMY_SHOPPER:
+			set_collision_layer_value(3, true)
 			
+
 func receive_hit(damage: int):
 	owner_stats.take_damage(damage)

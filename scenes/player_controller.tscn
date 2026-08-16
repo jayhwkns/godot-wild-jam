@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://ci4u1errxqjso"]
+
+[ext_resource type="Script" uid="uid://bou886eel1uqg" path="res://scripts/player_controller.gd" id="1_6agyq"]
+[ext_resource type="PackedScene" uid="uid://cjwmbjkj7a2hw" path="res://scenes/hurtbox.tscn" id="2_8xumb"]
+[ext_resource type="Script" uid="uid://dybahhf0pviqe" path="res://scripts/stats.gd" id="2_uxksl"]
+[ext_resource type="PackedScene" uid="uid://nq2dylok5w83" path="res://scenes/dash.tscn" id="3_8xumb"]
+[ext_resource type="PackedScene" uid="uid://biyqp7dtaasgn" path="res://scenes/hitbox.tscn" id="3_jh7gh"]
+[ext_resource type="PackedScene" uid="uid://bia1l63vk2quo" path="res://scenes/health_bar.tscn" id="6_0c017"]
+
+[sub_resource type="Resource" id="Resource_d26ks"]
+script = ExtResource("2_uxksl")
+base_speed = 100
+base_damage = 10
+metadata/_custom_type_script = "uid://dybahhf0pviqe"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_504oc"]
+size = Vector2(8, 12)
+
+[sub_resource type="Gradient" id="Gradient_6agyq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dm0af"]
+gradient = SubResource("Gradient_6agyq")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prqgk"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cgtko"]
+radius = 5.0
+
+[node name="player_controller" type="CharacterBody2D" unique_id=461754436]
+collision_layer = 2
+script = ExtResource("1_6agyq")
+stats = SubResource("Resource_d26ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056766594]
+shape = SubResource("RectangleShape2D_504oc")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506906784]
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(0.17968749, 0.2265624)
+texture = SubResource("GradientTexture2D_dm0af")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=853390270]
+
+[node name="Dash" parent="." unique_id=1921410922 instance=ExtResource("3_8xumb")]
+
+[node name="Hurtbox" parent="." unique_id=906765605 instance=ExtResource("2_8xumb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1087877125]
+shape = SubResource("CircleShape2D_prqgk")
+
+[node name="Hitbox" parent="." unique_id=1552246186 instance=ExtResource("3_jh7gh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=780217466]
+position = Vector2(8, 0)
+shape = SubResource("CircleShape2D_cgtko")
+
+[node name="HealthBar" parent="." unique_id=1658354716 instance=ExtResource("6_0c017")]
+offset_left = -8.0
+offset_top = -11.0
+offset_right = 8.0
+offset_bottom = -7.0
