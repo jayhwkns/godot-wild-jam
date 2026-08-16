@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://devpla2fdo437"]
 
 [ext_resource type="Script" uid="uid://cp6r7oop6u2g6" path="res://code/inventory.gd" id="1_kosh3"]
-[ext_resource type="Script" uid="uid://job06gjlo5ox" path="res://code/item_set_display.gd" id="2_70ao8"]
 [ext_resource type="PackedScene" uid="uid://cm2b3rservndq" path="res://ui/item_set_display.tscn" id="2_olbmd"]
 
-[node name="Inventory" type="Control" unique_id=82287051]
+[node name="Inventory" type="Control" unique_id=82287051 node_paths=PackedStringArray("cart_displays", "keep_displays")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kosh3")
+cart_displays = []
+keep_displays = []
 
 [node name="Cart" type="Panel" parent="." unique_id=110118074]
 layout_mode = 1
@@ -28,15 +29,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Cart"
 
-[node name="GridContainer" parent="Cart" unique_id=290287126 instance=ExtResource("2_olbmd")]
+[node name="ItemSetDisplay" parent="Cart" unique_id=290287126 instance=ExtResource("2_olbmd")]
 layout_mode = 0
 anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Keep" type="Panel" parent="." unique_id=66356354]
 layout_mode = 1
@@ -54,14 +49,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Keep"
 
-[node name="GridContainer" type="GridContainer" parent="Keep" unique_id=1140373842]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 24.0
-offset_right = -4.0
-offset_bottom = -4.0
-columns = 6
-script = ExtResource("2_70ao8")
+[node name="ItemSetDisplay" parent="Keep" unique_id=733740862 instance=ExtResource("2_olbmd")]
+layout_mode = 0
+anchors_preset = 0

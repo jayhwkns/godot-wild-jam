@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bk4c4r0ddxjbm"]
+
+[ext_resource type="PackedScene" uid="uid://devpla2fdo437" path="res://ui/inventory.tscn" id="1_dhqdt"]
+[ext_resource type="PackedScene" uid="uid://cm2b3rservndq" path="res://ui/item_set_display.tscn" id="2_v0c6q"]
+
+[node name="CheckOutPhase" type="Node2D" unique_id=1350903891]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=745474676]
+
+[node name="Inventory" parent="CanvasLayer" unique_id=82287051 node_paths=PackedStringArray("cart_displays") instance=ExtResource("1_dhqdt")]
+visible = false
+cart_displays = [NodePath("../Cart/ItemSetDisplay")]
+
+[node name="Cart" type="Panel" parent="CanvasLayer" unique_id=1550577413]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -519.0
+offset_right = 650.0
+offset_bottom = -5.0
+grow_vertical = 0
+
+[node name="ItemSetDisplay" parent="CanvasLayer/Cart" unique_id=290287126 instance=ExtResource("2_v0c6q")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Cart" unique_id=1980615607]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cart"

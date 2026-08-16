@@ -2,8 +2,15 @@
 class_name Inventory
 extends Node
 
-@onready var cart_display: Node = $Cart/GridContainer
-@onready var keep_display: Node = $Keep/GridContainer
+## ItemSetDisplays to display cart items. Child is added automatically.
+@export var cart_displays: Array[ItemSetDisplay] = []
+## ItemSetDisplays to display permanent items. Child is added automatically.
+@export var keep_displays: Array[ItemSetDisplay] = []
+
+## Which items to start with in the cart. Mostly for testing.
+@export var initial_cart_items: Array[Item] = []
+## Which items to start with in the permanent inventory. Mostly for testing.
+@export var initial_keep_items: Array[Item] = []
 
 ## Items which persist after a level is completed.
 var keep_items = ItemSet.new()
@@ -14,7 +21,7 @@ var cart_items = ItemSet.new()
 func pickup(item: Item) -> void:
 	item = cart_items.add(item)
 	item.on_pickup()
-	cart_display.display_set(cart_items)
+	display_cart()
 
 ## Removes an item from the cart inventory.
 ## Returns `true` when there is an item to drop.
@@ -26,7 +33,7 @@ func drop(item: Item) -> bool:
 	item.on_drop()
 	if item.count == 0:
 		cart_items.remove(item)
-	cart_display.display_set(cart_items)
+	display_cart()
 	return true
 
 ## Moves an item from the cart inventory to the keep inventory
@@ -38,7 +45,27 @@ func keep(item: Item) -> void:
 	item.count = 0
 	item = keep_items.add(item)
 	item.on_pickup()
-	keep_display.display_set(keep_items)
+	display_keep()
+		
+func _ready() -> void:
+	cart_displays.append($Cart/ItemSetDisplay)
+	keep_displays.append($Keep/ItemSetDisplay)
+	for item in initial_cart_items:
+		cart_items.add(item)
+		item.on_pickup()
+	for item in initial_keep_items:
+		keep_items.add(item)
+		item.on_pickup()
+	display_cart()
+	display_keep()
+
+func display_cart():
+	for cart_display in cart_displays:
+		cart_display.display_set(cart_items)
+
+func display_keep():
+	for keep_display in keep_displays:
+		keep_display.display_set(keep_items)
 
 func _process(delta: float) -> void:
 	for item in cart_items.items:
