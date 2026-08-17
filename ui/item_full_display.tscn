@@ -34,7 +34,7 @@ anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
-offset_bottom = -10.0
+offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/bold_font_size = 24
@@ -42,7 +42,16 @@ bbcode_enabled = true
 text = "[b]Select Item[/b]
 "
 
-[node name="Price" type="RichTextLabel" parent="Panel" unique_id=159743456]
+[node name="Purchase" type="Control" parent="Panel" unique_id=1756065728]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Price" type="RichTextLabel" parent="Panel/Purchase" unique_id=159743456]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -55,3 +64,73 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
+
+[node name="Button" type="Button" parent="Panel/Purchase" unique_id=2002641748]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Buy"
+
+[node name="CraftConfirm" type="Control" parent="Panel" unique_id=1515102228]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Confirm" type="Button" parent="Panel/CraftConfirm" unique_id=76643445]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Craft"
+
+[node name="Craft" type="Control" parent="Panel" unique_id=632566595]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/Craft" unique_id=208172056]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 120.0
+grow_vertical = 0
+text = "Combines with:"
+
+[node name="GridContainer" type="GridContainer" parent="Panel/Craft/Label" unique_id=1870836138]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 441.0
+grow_horizontal = 0
+grow_vertical = 0

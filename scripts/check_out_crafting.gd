@@ -21,6 +21,8 @@ func toggle_mode():
 		shift_by *= -1
 		nav_text = "<= Cart"
 	$Navigator.text = nav_text
+	$ItemFullDisplay.display_item(null)
+	$ItemFullDisplay.set_mode(ItemFullDisplay.Mode.CRAFT)
 	_target_x += shift_by
 
 # Called when the node enters the scene tree for the first time.

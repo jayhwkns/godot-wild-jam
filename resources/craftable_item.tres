@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ddnoxb6xygv6v"]
+
+[ext_resource type="Texture2D" uid="uid://dqonqdak0wglh" path="res://art/placeholder/PLACEHOLDER_ITEM.bmp" id="1_jpq15"]
+[ext_resource type="Script" uid="uid://ccgakvpnmqgeb" path="res://code/recipe.gd" id="2_tw6hh"]
+[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://code/item.gd" id="3_006x8"]
+
+[resource]
+script = ExtResource("3_006x8")
+id = "CRAFTABLE_ITEM"
+display_name = "Craftable Item"
+description = "This item was created by crafting."
+metadata/_custom_type_script = "uid://b4lb6kh7tdcql"
