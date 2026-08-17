@@ -9,6 +9,8 @@ extends Node
 @export var cart_displays: Array[ItemSetDisplay] = []
 ## ItemSetDisplays to display permanent items. Child is added automatically.
 @export var keep_displays: Array[ItemSetDisplay] = []
+## Displays the amount of money.
+@export var dollars_displays: Array[RichTextLabel] = []
 
 ## Which items to start with in the cart. Mostly for testing.
 @export var initial_cart_items: Array[Item] = []
@@ -19,6 +21,8 @@ extends Node
 var keep_items = ItemSet.new()
 ## Items which can be purchased during the check-out phase.
 var cart_items = ItemSet.new()
+
+@export var dollars: int = 0
 
 ## Adds an item to the cart inventory
 func pickup(item: Item) -> void:
@@ -53,6 +57,7 @@ func keep(item: Item) -> void:
 func _ready() -> void:
 	cart_displays.append($Cart/ItemSetDisplay)
 	keep_displays.append($Keep/ItemSetDisplay)
+	dollars_displays.append($Dollars/RichTextLabel)
 	for item in initial_cart_items:
 		cart_items.add(item)
 		item.on_pickup()
@@ -69,6 +74,11 @@ func display_cart():
 func display_keep():
 	for keep_display in keep_displays:
 		keep_display.display_set(keep_items)
+
+func set_dollars(new_dollars: int):
+	dollars = new_dollars
+	for dollars_display in dollars_displays:
+		dollars_display.text = "[b][color=gold]$%d[/color][/b]" % dollars
 
 func _process(delta: float) -> void:
 	if !process:
