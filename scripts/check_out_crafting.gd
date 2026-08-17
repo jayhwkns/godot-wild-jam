@@ -40,7 +40,10 @@ func _ready() -> void:
 		purchased.emit(item)
 		deselect_empty.call_deferred(item)
 	)
-	$ItemFullDisplay.crafted.connect(func(item: Item): crafted.emit(item))
+	$ItemFullDisplay.crafted.connect(func(item: Item):
+		crafted.emit(item)
+		$ItemFullDisplay.set_mode(ItemFullDisplay.Mode.CRAFT)
+	)
 	$ItemFullDisplay.set_mode($ItemFullDisplay.mode)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

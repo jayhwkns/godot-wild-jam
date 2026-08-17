@@ -95,6 +95,7 @@ func craft(item: Item) -> void:
 	if product == null:
 		return
 	_keep(product)
+	display_keep()
 
 func purchase(item: Item) -> void:
 	if dollars < item.price:
