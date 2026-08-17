@@ -9,6 +9,7 @@ const PADDING = 10
 
 signal crafted(item: Item)
 signal purchased(item: Item)
+signal next_stop
 
 var _mode: Mode = Mode.CHECK_OUT
 
@@ -45,6 +46,7 @@ func _ready() -> void:
 		$ItemFullDisplay.set_mode(ItemFullDisplay.Mode.CRAFT)
 	)
 	$ItemFullDisplay.set_mode($ItemFullDisplay.mode)
+	$NextLevel.pressed.connect(func(): next_stop.emit())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

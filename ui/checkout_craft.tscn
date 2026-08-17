@@ -148,7 +148,7 @@ offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
-text = "NextLevel"
+text = "Next Stop"
 
 [connection signal="item_selected" from="Cart/ItemSetDisplay" to="ItemFullDisplay" method="display_item"]
 [connection signal="pressed" from="Navigator" to="." method="toggle_mode"]
