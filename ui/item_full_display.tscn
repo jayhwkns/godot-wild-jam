@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://sqi3dq721wsq"]
 
 [ext_resource type="Script" uid="uid://dsyguony2342a" path="res://code/item_full_display.gd" id="1_pseys"]
+[ext_resource type="Resource" uid="uid://d3bs43yhinma7" path="res://resources/catalog.tres" id="2_q4q7g"]
+[ext_resource type="PackedScene" uid="uid://cm2b3rservndq" path="res://ui/item_set_display.tscn" id="3_5gwl1"]
 
 [node name="ItemFullDisplay" type="Control" unique_id=1740540943]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pseys")
+catalog = ExtResource("2_q4q7g")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1150855497]
 layout_mode = 1
@@ -43,6 +46,7 @@ text = "[b]Select Item[/b]
 "
 
 [node name="Purchase" type="Control" parent="Panel" unique_id=1756065728]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -118,19 +122,19 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
+offset_top = -37.0
 offset_right = 120.0
 grow_vertical = 0
 text = "Combines with:"
+vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Panel/Craft/Label" unique_id=1870836138]
+[node name="ItemSetDisplay" parent="Panel/Craft/Label" unique_id=290287126 instance=ExtResource("3_5gwl1")]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 11
 anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 441.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 495.0
+offset_bottom = 0.0
 grow_horizontal = 0
-grow_vertical = 0
+grow_vertical = 2

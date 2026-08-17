@@ -28,14 +28,14 @@ offset_bottom = 23.0
 text = "Cart"
 
 [node name="ItemSetDisplay" parent="Cart" unique_id=290287126 instance=ExtResource("2_olbmd")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+anchors_preset = 15
 offset_left = 0.0
-offset_top = 0.0
+offset_top = 23.0
 offset_right = 0.0
 offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Keep" type="Panel" parent="." unique_id=66356354]
 layout_mode = 1
@@ -54,14 +54,14 @@ offset_bottom = 23.0
 text = "Keep"
 
 [node name="ItemSetDisplay" parent="Keep" unique_id=733740862 instance=ExtResource("2_olbmd")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+anchors_preset = 15
 offset_left = 0.0
-offset_top = 0.0
+offset_top = 23.0
 offset_right = 0.0
 offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Dollars" type="Panel" parent="." unique_id=656788569]
 layout_mode = 1

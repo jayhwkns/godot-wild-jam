@@ -12,6 +12,9 @@ func link_item(item: Item):
 func select():
 	item_selected.emit(_item)
 
+func show_count(show: bool) -> void:
+	$Label.visible = show
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if _item == null:

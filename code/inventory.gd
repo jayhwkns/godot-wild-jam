@@ -81,11 +81,11 @@ func _ready() -> void:
 
 func display_cart():
 	for cart_display in cart_displays:
-		cart_display.display_set(cart_items)
+		cart_display.display_set(cart_items.items)
 
 func display_keep():
 	for keep_display in keep_displays:
-		keep_display.display_set(keep_items)
+		keep_display.display_set(keep_items.items)
 
 func set_dollars(new_dollars: int):
 	dollars = new_dollars
