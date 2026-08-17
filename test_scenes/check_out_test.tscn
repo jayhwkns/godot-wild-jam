@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://d3bs43yhinma7" path="res://resources/catalog.tres" id="5_1jxrr"]
 [ext_resource type="Script" uid="uid://cxusdfco55hph" path="res://scripts/check_out_crafting.gd" id="5_eg4k4"]
 [ext_resource type="PackedScene" uid="uid://sqi3dq721wsq" path="res://ui/item_full_display.tscn" id="6_ws1yc"]
+[ext_resource type="Script" uid="uid://docd5cchl5t5e" path="res://code/crafting.gd" id="9_ltuwa"]
 
 [node name="CheckOutPhase" type="Node2D" unique_id=1350903891]
 
@@ -20,6 +21,7 @@ cart_displays = [NodePath("../CheckOutCraft/Cart/ItemSetDisplay")]
 keep_displays = [NodePath("../CheckOutCraft/Keep/ItemSetDisplay")]
 dollars_displays = [NodePath("../CheckOutCraft/Dollars/RichTextLabel")]
 initial_cart_items = Array[ExtResource("2_t4ugh")]([ExtResource("3_ws1yc"), ExtResource("4_eg4k4")])
+initial_keep_items = Array[ExtResource("2_t4ugh")]([ExtResource("3_ws1yc")])
 dollars = 20
 catalog = ExtResource("5_1jxrr")
 
@@ -141,7 +143,7 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Crafting" type="Panel" parent="CanvasLayer/CheckOutCraft" unique_id=145556270]
+[node name="Crafting" type="Panel" parent="CanvasLayer/CheckOutCraft" unique_id=145556270 node_paths=PackedStringArray("display")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -154,8 +156,11 @@ offset_right = -10.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("9_ltuwa")
+display = NodePath("../ItemFullDisplay")
+catalog = ExtResource("5_1jxrr")
 
-[node name="CraftL" type="Panel" parent="CanvasLayer/CheckOutCraft/Crafting" unique_id=2075994352]
+[node name="SlotA" type="Panel" parent="CanvasLayer/CheckOutCraft/Crafting" unique_id=2075994352]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -166,7 +171,15 @@ offset_right = 102.0
 offset_bottom = 21.799988
 grow_vertical = 2
 
-[node name="CraftR" type="Panel" parent="CanvasLayer/CheckOutCraft/Crafting" unique_id=684338731]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CheckOutCraft/Crafting/SlotA" unique_id=1218194698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotB" type="Panel" parent="CanvasLayer/CheckOutCraft/Crafting" unique_id=684338731]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -178,6 +191,14 @@ offset_top = -18.200012
 offset_right = -63.599976
 offset_bottom = 21.799988
 grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CheckOutCraft/Crafting/SlotB" unique_id=107186560]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/CheckOutCraft/Crafting" unique_id=103660135]
@@ -217,4 +238,5 @@ text = "NextLevel"
 [connection signal="purchased" from="CanvasLayer/CheckOutCraft" to="CanvasLayer/Inventory" method="purchase"]
 [connection signal="item_selected" from="CanvasLayer/CheckOutCraft/Cart/ItemSetDisplay" to="CanvasLayer/CheckOutCraft/ItemFullDisplay" method="display_item"]
 [connection signal="pressed" from="CanvasLayer/CheckOutCraft/Navigator" to="CanvasLayer/CheckOutCraft" method="toggle_mode"]
-[connection signal="item_selected" from="CanvasLayer/CheckOutCraft/Keep/ItemSetDisplay" to="CanvasLayer/CheckOutCraft/ItemFullDisplay" method="display_item"]
+[connection signal="pressed" from="CanvasLayer/CheckOutCraft/Navigator" to="CanvasLayer/CheckOutCraft/Crafting" method="clear"]
+[connection signal="item_selected" from="CanvasLayer/CheckOutCraft/Keep/ItemSetDisplay" to="CanvasLayer/CheckOutCraft/Crafting" method="on_select"]

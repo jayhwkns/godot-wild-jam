@@ -30,10 +30,7 @@ func display_item(item: Item):
 	$Panel/ItemInfo.text = "[b]%s[/b]\n%s" % [item.display_name, item.description]	
 	$Panel/Purchase/Price.text = "[b][color=gold]$%d[/color][/b]" % item.price
 	$Panel/Purchase/Button.visible = true
-	var recipes = catalog.recipes_containing(item)
-	_combineable = []
-	for recipe in recipes:
-		_combineable.append(recipe.get_other_ingredient(item))
+	_combineable = catalog.combineable_with(item)
 	$Panel/Craft/Label.text = "" if _combineable.is_empty() else "Combines with"
 	$Panel/Craft/Label/ItemSetDisplay.display_set(_combineable, false)
 

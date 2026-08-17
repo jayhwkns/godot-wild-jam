@@ -66,20 +66,6 @@ func _keep(item: Item) -> void:
 	item = keep_items.add(item)
 	item.on_pickup()
 
-func _ready() -> void:
-	cart_displays.append($Cart/ItemSetDisplay)
-	keep_displays.append($Keep/ItemSetDisplay)
-	dollars_displays.append($Dollars/RichTextLabel)
-	for item in initial_cart_items:
-		cart_items.add(item)
-		item.on_pickup()
-	for item in initial_keep_items:
-		keep_items.add(item)
-		item.on_pickup()
-	display_cart()
-	display_keep()
-	set_dollars(dollars)
-
 func display_cart():
 	for cart_display in cart_displays:
 		cart_display.display_set(cart_items.items)
@@ -115,7 +101,23 @@ func purchase(item: Item) -> void:
 		return
 	set_dollars(dollars - item.price)
 	keep(item)
-	
+
+func _ready() -> void:
+	cart_displays.append($Cart/ItemSetDisplay)
+	keep_displays.append($Keep/ItemSetDisplay)
+	dollars_displays.append($Dollars/RichTextLabel)
+	for item in initial_cart_items:
+		item = item.duplicate()
+		cart_items.add(item)
+		item.on_pickup()
+	for item in initial_keep_items:
+		item = item.duplicate()
+		keep_items.add(item)
+		item.on_pickup()
+	display_cart()
+	display_keep()
+	set_dollars(dollars)
+
 func _process(delta: float) -> void:
 	if !process:
 		return
