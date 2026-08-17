@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://devpla2fdo437" path="res://ui/inventory.tscn" id="1_1hgtl"]
 [ext_resource type="Script" uid="uid://ilaqlya651d7" path="res://code/inventory_test_panel.gd" id="2_2kqyw"]
+[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://code/item.gd" id="2_v5gkc"]
 [ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/placeholder_item.tres" id="3_yytu4"]
 [ext_resource type="Resource" uid="uid://by1tkey7gxh6b" path="res://resources/placeholder_temp_item.tres" id="4_x1y07"]
 
@@ -10,6 +11,8 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1621967118]
 
 [node name="Inventory" parent="CanvasLayer" unique_id=82287051 instance=ExtResource("1_1hgtl")]
+initial_cart_items = Array[ExtResource("2_v5gkc")]([ExtResource("3_yytu4")])
+initial_keep_items = Array[ExtResource("2_v5gkc")]([ExtResource("4_x1y07")])
 
 [node name="TestPanel" type="GridContainer" parent="CanvasLayer" unique_id=1228782220 node_paths=PackedStringArray("inventory")]
 anchors_preset = 3

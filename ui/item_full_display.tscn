@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://sqi3dq721wsq"]
+
+[ext_resource type="Script" uid="uid://dsyguony2342a" path="res://code/item_full_display.gd" id="1_pseys"]
+[ext_resource type="Resource" uid="uid://d3bs43yhinma7" path="res://resources/catalog.tres" id="2_q4q7g"]
+[ext_resource type="PackedScene" uid="uid://cm2b3rservndq" path="res://ui/item_set_display.tscn" id="3_5gwl1"]
+
+[node name="ItemFullDisplay" type="Control" unique_id=1740540943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pseys")
+catalog = ExtResource("2_q4q7g")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1150855497]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.666
+grow_horizontal = 2
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="." unique_id=1064225445]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.666
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ItemInfo" type="RichTextLabel" parent="Panel" unique_id=1138987957]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]Select Item[/b]
+"
+
+[node name="Purchase" type="Control" parent="Panel" unique_id=1756065728]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Price" type="RichTextLabel" parent="Panel/Purchase" unique_id=159743456]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -46.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+
+[node name="Button" type="Button" parent="Panel/Purchase" unique_id=2002641748]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Buy"
+
+[node name="CraftConfirm" type="Control" parent="Panel" unique_id=1515102228]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Confirm" type="Button" parent="Panel/CraftConfirm" unique_id=76643445]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Craft"
+
+[node name="Craft" type="Control" parent="Panel" unique_id=632566595]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/Craft" unique_id=208172056]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -37.0
+offset_right = 120.0
+grow_vertical = 0
+text = "Combines with:"
+vertical_alignment = 1
+
+[node name="ItemSetDisplay" parent="Panel/Craft/Label" unique_id=290287126 instance=ExtResource("3_5gwl1")]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 495.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="pressed" from="Panel/Purchase/Button" to="." method="confirm"]
+[connection signal="pressed" from="Panel/CraftConfirm/Confirm" to="." method="confirm"]

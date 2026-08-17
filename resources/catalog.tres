@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemCatalog" format=3 uid="uid://d3bs43yhinma7"]
+
+[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://code/item.gd" id="1_c5qkr"]
+[ext_resource type="Script" uid="uid://oyivbatsd4d4" path="res://code/item_catalog.gd" id="2_fjir5"]
+[ext_resource type="Script" uid="uid://ccgakvpnmqgeb" path="res://code/recipe.gd" id="2_wkvqh"]
+[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/placeholder_item.tres" id="3_4g3np"]
+[ext_resource type="Resource" uid="uid://ddnoxb6xygv6v" path="res://resources/craftable_item.tres" id="4_f44ds"]
+
+[sub_resource type="Resource" id="Resource_4g3np"]
+script = ExtResource("2_wkvqh")
+ingredient_a = ExtResource("3_4g3np")
+ingredient_b = ExtResource("3_4g3np")
+product = ExtResource("4_f44ds")
+metadata/_custom_type_script = "uid://ccgakvpnmqgeb"
+
+[resource]
+script = ExtResource("2_fjir5")
+recipes = Array[ExtResource("2_wkvqh")]([SubResource("Resource_4g3np")])
+metadata/_custom_type_script = "uid://oyivbatsd4d4"

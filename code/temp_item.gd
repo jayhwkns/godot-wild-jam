@@ -10,5 +10,4 @@ func process(delta: float) -> void:
 	time_left = clamp(time_left - delta, 0, lasts_for)
 	if time_left <= 0:
 		on_drop()
-		print(count)
 		time_left = lasts_for

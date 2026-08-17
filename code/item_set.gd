@@ -27,3 +27,7 @@ func get_item(item: Item) -> Item:
 	if from_set.is_empty():
 		return null
 	return from_set[0]
+
+## Removes items with a count of zero.
+func clean() -> void:
+	items = items.filter(func(item): return item.count > 0)
