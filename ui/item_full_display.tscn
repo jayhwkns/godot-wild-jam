@@ -138,3 +138,6 @@ offset_right = 495.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[connection signal="pressed" from="Panel/Purchase/Button" to="." method="confirm"]
+[connection signal="pressed" from="Panel/CraftConfirm/Confirm" to="." method="confirm"]

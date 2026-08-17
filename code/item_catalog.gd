@@ -14,3 +14,11 @@ func recipes_containing(item: Item) -> Array[Recipe]:
 			item.id == recipe.ingredient_b.id
 		)
 	)
+
+func recipe_for(item: Item) -> Recipe:
+	var recipes_for = recipes.filter(func(r: Recipe):
+		return r.product.id == item.id
+	)
+	if recipes_for.is_empty():
+		return null
+	return recipes_for[0]

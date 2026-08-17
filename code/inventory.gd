@@ -47,8 +47,7 @@ func _drop(item: Item, item_set: ItemSet) -> bool:
 		# Nothing to do.
 		return false
 	item.on_drop()
-	if item.count == 0:
-		item_set.remove(item)
+	item_set.clean()
 	return true
 
 ## Moves an item from the cart inventory to the keep inventory
@@ -59,6 +58,7 @@ func keep(item: Item) -> void:
 	display_keep()
 	
 
+## Adds an item to the permanent inventory without removing it from the cart.
 func _keep(item: Item) -> void:
 	# Reset count since only 1 is being moved (not entire stack).
 	item = item.duplicate()
@@ -78,6 +78,7 @@ func _ready() -> void:
 		item.on_pickup()
 	display_cart()
 	display_keep()
+	set_dollars(dollars)
 
 func display_cart():
 	for cart_display in cart_displays:
@@ -92,16 +93,29 @@ func set_dollars(new_dollars: int):
 	for dollars_display in dollars_displays:
 		dollars_display.text = "[b][color=gold]$%d[/color][/b]" % dollars
 
-func combine(item_a: Item, item_b: Item) -> void:
+func _combine(item_a: Item, item_b: Item) -> Item:
 	var product = item_a.get_product(item_b, catalog.recipes_containing(item_a))
 	if product == null:
-		return
+		return null
 	if !_drop(item_a, keep_items):
-		return
+		return null
 	if !_drop(item_b, keep_items):
+		return null
+	return product
+
+func craft(item: Item) -> void:
+	var recipe = catalog.recipe_for(item)
+	var product = _combine(recipe.ingredient_a, recipe.ingredient_b)
+	if product == null:
 		return
 	_keep(product)
 
+func purchase(item: Item) -> void:
+	if dollars < item.price:
+		return
+	set_dollars(dollars - item.price)
+	keep(item)
+	
 func _process(delta: float) -> void:
 	if !process:
 		return

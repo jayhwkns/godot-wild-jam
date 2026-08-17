@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cm2b3rservndq" path="res://ui/item_set_display.tscn" id="2_v0c6q"]
 [ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/placeholder_item.tres" id="3_ws1yc"]
 [ext_resource type="Resource" uid="uid://by1tkey7gxh6b" path="res://resources/placeholder_temp_item.tres" id="4_eg4k4"]
+[ext_resource type="Resource" uid="uid://d3bs43yhinma7" path="res://resources/catalog.tres" id="5_1jxrr"]
 [ext_resource type="Script" uid="uid://cxusdfco55hph" path="res://scripts/check_out_crafting.gd" id="5_eg4k4"]
 [ext_resource type="PackedScene" uid="uid://sqi3dq721wsq" path="res://ui/item_full_display.tscn" id="6_ws1yc"]
 
@@ -19,6 +20,8 @@ cart_displays = [NodePath("../CheckOutCraft/Cart/ItemSetDisplay")]
 keep_displays = [NodePath("../CheckOutCraft/Keep/ItemSetDisplay")]
 dollars_displays = [NodePath("../CheckOutCraft/Dollars/RichTextLabel")]
 initial_cart_items = Array[ExtResource("2_t4ugh")]([ExtResource("3_ws1yc"), ExtResource("4_eg4k4")])
+dollars = 20
+catalog = ExtResource("5_1jxrr")
 
 [node name="CheckOutCraft" type="Control" parent="CanvasLayer" unique_id=325411297]
 layout_mode = 3
@@ -210,6 +213,8 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "NextLevel"
 
+[connection signal="crafted" from="CanvasLayer/CheckOutCraft" to="CanvasLayer/Inventory" method="craft"]
+[connection signal="purchased" from="CanvasLayer/CheckOutCraft" to="CanvasLayer/Inventory" method="purchase"]
 [connection signal="item_selected" from="CanvasLayer/CheckOutCraft/Cart/ItemSetDisplay" to="CanvasLayer/CheckOutCraft/ItemFullDisplay" method="display_item"]
 [connection signal="pressed" from="CanvasLayer/CheckOutCraft/Navigator" to="CanvasLayer/CheckOutCraft" method="toggle_mode"]
 [connection signal="item_selected" from="CanvasLayer/CheckOutCraft/Keep/ItemSetDisplay" to="CanvasLayer/CheckOutCraft/ItemFullDisplay" method="display_item"]
