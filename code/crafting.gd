@@ -4,7 +4,7 @@ extends Node
 @export var slot_b: Item = null
 
 @export var display: ItemFullDisplay
-@export var catalog: ItemCatalog
+@export var catalog: ItemCatalog = preload("res://resources/catalog.tres")
 
 func on_select(item: Item) -> void:
 	display.display_item(item)
