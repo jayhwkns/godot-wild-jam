@@ -28,6 +28,7 @@ var cart_items = ItemSet.new()
 
 ## Adds an item to the cart inventory
 func pickup(item: Item) -> void:
+	item = item.duplicate()
 	item = cart_items.add(item)
 	item.on_pickup()
 	display_cart()
