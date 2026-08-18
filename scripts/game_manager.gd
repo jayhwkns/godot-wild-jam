@@ -12,4 +12,4 @@ func _ready() -> void:
 
 func spawn_node() -> void:
 	var instance = level_node.instantiate()
-	add_child(instance)
+	get_tree().root.add_child.call_deferred(instance)

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bgxptcg28kmlr"]
+
+[ext_resource type="PackedScene" uid="uid://0ci8xl3ubikg" path="res://scenes/game_manager.tscn" id="1_kmxhf"]
+[ext_resource type="PackedScene" uid="uid://ci4u1errxqjso" path="res://scenes/player_controller.tscn" id="2_uji41"]
+
+[node name="LevelTest" type="Node2D" unique_id=216249123]
+
+[node name="GameManager" parent="." unique_id=360775614 instance=ExtResource("1_kmxhf")]
+
+[node name="player_controller" parent="." unique_id=461754436 instance=ExtResource("2_uji41")]
+position = Vector2(0, -37)
+
+[node name="Camera2D" type="Camera2D" parent="player_controller" unique_id=1328418384]
+zoom = Vector2(2.5, 2.5)

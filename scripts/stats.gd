@@ -17,7 +17,7 @@ signal health_changed(cur_health: int, max_health)
 @export var faction: Faction = Faction.PLAYER
 
 var current_max_health: int = 10
-var current_speed: int = 10
+var current_speed: float = 10.0
 var current_jump_velocity: float = -400.0
 var current_dash_speed: float  = 200.0
 var current_damage: int = 1
