@@ -6,6 +6,7 @@ class_name enemy_shopper
 @onready var hurtbox: HurtBox = $hurtbox
 
 @export var stats: Stats
+@export var skins: Array[Texture]
 var direction: Vector2 = Vector2.LEFT # Always go left
 const GRAVITY = 900
 var knockback_force = 200
@@ -22,6 +23,7 @@ func _ready() -> void:
 	
 	hurtbox.setup(stats)
 	hitbox.setup(stats, 0.5)
+	$Sprite2D.texture = skins[randi() % skins.size()]
 
 func _physics_process(delta):
 	if !is_on_floor():
