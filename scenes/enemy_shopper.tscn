@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cjwmbjkj7a2hw" path="res://scenes/hurtbox.tscn" id="2_vjddg"]
 [ext_resource type="PackedScene" uid="uid://biyqp7dtaasgn" path="res://scenes/hitbox.tscn" id="2_y1hk0"]
 [ext_resource type="PackedScene" uid="uid://bia1l63vk2quo" path="res://scenes/health_bar.tscn" id="3_2mgso"]
+[ext_resource type="Texture2D" uid="uid://l803jrcnmtmw" path="res://art/npc/npc_1.png" id="3_p4vvc"]
+[ext_resource type="Texture2D" uid="uid://bf7uod74g08lf" path="res://art/npc/npc_2.png" id="4_qbmjf"]
+[ext_resource type="Texture2D" uid="uid://clkej2cw6v8xd" path="res://art/npc/npc_3.png" id="5_1eram"]
 
 [sub_resource type="Resource" id="Resource_y1hk0"]
 script = ExtResource("2_d26ks")
@@ -13,8 +16,6 @@ metadata/_custom_type_script = "uid://dybahhf0pviqe"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_504oc"]
 size = Vector2(8, 10)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_504oc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_acsds"]
 radius = 5.3851647
@@ -27,14 +28,17 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_k6ayw")
 stats = SubResource("Resource_y1hk0")
+skins = Array[Texture]([ExtResource("3_p4vvc"), ExtResource("4_qbmjf"), ExtResource("5_1eram")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056766594]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_504oc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506906784]
-scale = Vector2(10.5, 11.75)
-texture = SubResource("PlaceholderTexture2D_504oc")
+position = Vector2(-3.3881318e-21, -3)
+scale = Vector2(0.029, 0.029)
+texture = ExtResource("3_p4vvc")
+flip_h = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=853390270]
 

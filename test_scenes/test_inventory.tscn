@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://caceyakeihehq"]
 
 [ext_resource type="PackedScene" uid="uid://devpla2fdo437" path="res://ui/inventory.tscn" id="1_1hgtl"]
-[ext_resource type="Script" uid="uid://ilaqlya651d7" path="res://code/inventory_test_panel.gd" id="2_2kqyw"]
-[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://code/item.gd" id="2_v5gkc"]
-[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/placeholder_item.tres" id="3_yytu4"]
-[ext_resource type="Resource" uid="uid://by1tkey7gxh6b" path="res://resources/placeholder_temp_item.tres" id="4_x1y07"]
+[ext_resource type="Script" uid="uid://ilaqlya651d7" path="res://scripts/test/inventory_test_panel.gd" id="2_2kqyw"]
+[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://scripts/resources/items/item.gd" id="2_v5gkc"]
+[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/items/placeholder/placeholder_item.tres" id="3_yytu4"]
+[ext_resource type="Resource" uid="uid://by1tkey7gxh6b" path="res://resources/items/placeholder/placeholder_temp_item.tres" id="4_x1y07"]
 
 [node name="TestInventory" type="Node2D" unique_id=979048003]
 
