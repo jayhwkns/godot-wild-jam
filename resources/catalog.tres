@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://scripts/resources/items/item.gd" id="1_c5qkr"]
 [ext_resource type="Script" uid="uid://oyivbatsd4d4" path="res://scripts/resources/item_catalog.gd" id="2_fjir5"]
 [ext_resource type="Script" uid="uid://ccgakvpnmqgeb" path="res://scripts/resources/recipe.gd" id="2_wkvqh"]
-[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/items/placeholder_item.tres" id="3_4g3np"]
-[ext_resource type="Resource" uid="uid://ddnoxb6xygv6v" path="res://resources/items/craftable_item.tres" id="4_f44ds"]
+[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/items/placeholder/placeholder_item.tres" id="3_4g3np"]
+[ext_resource type="Resource" uid="uid://ddnoxb6xygv6v" path="res://resources/items/placeholder/craftable_item.tres" id="4_f44ds"]
 
 [sub_resource type="Resource" id="Resource_4g3np"]
 script = ExtResource("2_wkvqh")

@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bk4c4r0ddxjbm"]
 
 [ext_resource type="PackedScene" uid="uid://devpla2fdo437" path="res://ui/inventory.tscn" id="1_dhqdt"]
-[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://code/item.gd" id="2_t4ugh"]
+[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://scripts/resources/items/item.gd" id="2_t4ugh"]
 [ext_resource type="PackedScene" uid="uid://cm2b3rservndq" path="res://ui/item_set_display.tscn" id="2_v0c6q"]
-[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/placeholder_item.tres" id="3_ws1yc"]
-[ext_resource type="Resource" uid="uid://by1tkey7gxh6b" path="res://resources/placeholder_temp_item.tres" id="4_eg4k4"]
+[ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/items/placeholder/placeholder_item.tres" id="3_ws1yc"]
+[ext_resource type="Resource" uid="uid://by1tkey7gxh6b" path="res://resources/items/placeholder/placeholder_temp_item.tres" id="4_eg4k4"]
 [ext_resource type="Resource" uid="uid://d3bs43yhinma7" path="res://resources/catalog.tres" id="5_1jxrr"]
-[ext_resource type="Script" uid="uid://cxusdfco55hph" path="res://scripts/check_out_crafting.gd" id="5_eg4k4"]
+[ext_resource type="Script" uid="uid://cxusdfco55hph" path="res://scripts/ui/check_out_crafting.gd" id="5_eg4k4"]
 [ext_resource type="PackedScene" uid="uid://sqi3dq721wsq" path="res://ui/item_full_display.tscn" id="6_ws1yc"]
-[ext_resource type="Script" uid="uid://docd5cchl5t5e" path="res://code/crafting.gd" id="9_ltuwa"]
+[ext_resource type="Script" uid="uid://docd5cchl5t5e" path="res://scripts/ui/crafting.gd" id="9_ltuwa"]
 
 [node name="CheckOutPhase" type="Node2D" unique_id=1350903891]
 
@@ -158,7 +158,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_ltuwa")
 display = NodePath("../ItemFullDisplay")
-catalog = ExtResource("5_1jxrr")
 
 [node name="SlotA" type="Panel" parent="CanvasLayer/CheckOutCraft/Crafting" unique_id=2075994352]
 layout_mode = 1
