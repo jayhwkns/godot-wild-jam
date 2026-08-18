@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://0qbmmvi4gljg"]
+
+[ext_resource type="Script" uid="uid://djoj5wfv3ctoj" path="res://scripts/crowd.gd" id="1_h08my"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_504oc"]
+
+[node name="crowd" type="Area2D" unique_id=1244541125]
+collision_mask = 6
+script = ExtResource("1_h08my")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1518589882]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_504oc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
