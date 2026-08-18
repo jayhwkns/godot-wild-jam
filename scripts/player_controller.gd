@@ -6,8 +6,7 @@ extends CharacterBody2D
 @export var stats: Stats
 
 var direction = 0
-var speed: int # handle swapping between dash and normal speed
-
+var speed: float # handle swapping between dash and normal speed
 
 func _ready() -> void:
 	stats.setup_stats()

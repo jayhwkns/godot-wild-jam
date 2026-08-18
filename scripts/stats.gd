@@ -10,7 +10,7 @@ signal dead
 signal health_changed(cur_health: int, max_health)
 
 @export var base_max_health: int = 10
-@export var base_speed: int = 10
+@export var base_speed: float = 10.0
 @export var base_damage: int = 1
 @export var base_jump_velocity: float = -400.0
 @export var base_dash_speed: float  = 200.0
