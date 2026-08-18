@@ -21,3 +21,6 @@ func setup(_owner_stats: Stats) -> void:
 
 func receive_hit(damage: int):
 	owner_stats.take_damage(damage)
+	
+func die():
+	owner_stats.take_damage(owner_stats.current_max_health)

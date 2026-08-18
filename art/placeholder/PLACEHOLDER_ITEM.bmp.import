@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqonqdak0wglh"
-path="res://.godot/imported/PLACEHOLDER_ITEM.bmp-e9126a1aa9fcb1746eb6697c58ad5dc7.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://art/placeholder/PLACEHOLDER_ITEM.bmp"
-dest_files=["res://.godot/imported/PLACEHOLDER_ITEM.bmp-e9126a1aa9fcb1746eb6697c58ad5dc7.ctex"]
 
 [params]
 

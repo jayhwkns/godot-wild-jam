@@ -2,7 +2,8 @@ class_name Stats extends Resource
 
 enum Faction {
 	PLAYER,
-	ENEMY_SHOPPER
+	ENEMY_SHOPPER,
+	CROWD
 }
 
 signal dead
@@ -29,12 +30,14 @@ func _init() -> void:
 	
 func setup_stats() -> void:
 	# recalc current stats first
-	current_health = current_max_health
-	current_max_health = base_max_health
 	current_speed = base_speed
-	current_damage = base_damage
-	current_jump_velocity = base_jump_velocity
-	current_dash_speed  = base_dash_speed
+	# CROWD doesn't need these
+	if !faction == Stats.Faction.CROWD:
+		current_health = current_max_health
+		current_max_health = base_max_health
+		current_damage = base_damage
+		current_jump_velocity = base_jump_velocity
+		current_dash_speed  = base_dash_speed
 	
 func take_damage(amount: int) -> void:
 	current_health -= amount

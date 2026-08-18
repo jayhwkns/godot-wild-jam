@@ -2,10 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://b1gaxmn7xuf4t" path="res://scenes/enemy_shopper.tscn" id="1_57scb"]
 [ext_resource type="PackedScene" uid="uid://ci4u1errxqjso" path="res://scenes/player_controller.tscn" id="2_8qv6w"]
+[ext_resource type="PackedScene" uid="uid://0qbmmvi4gljg" path="res://scenes/crowd.tscn" id="3_k47ex"]
+[ext_resource type="Script" uid="uid://dybahhf0pviqe" path="res://scripts/stats.gd" id="4_ptbya"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cgtko"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k6ayw"]
+
+[sub_resource type="Resource" id="Resource_h08my"]
+script = ExtResource("4_ptbya")
+faction = 2
+metadata/_custom_type_script = "uid://dybahhf0pviqe"
 
 [node name="TestWorld" type="Node2D" unique_id=1436817408]
 
@@ -28,3 +35,7 @@ position = Vector2(-43, -27)
 
 [node name="Camera2D" type="Camera2D" parent="player_controller" unique_id=1333485080]
 zoom = Vector2(2, 2)
+
+[node name="crowd" parent="." unique_id=1244541125 instance=ExtResource("3_k47ex")]
+position = Vector2(-232.665, 0)
+stats = SubResource("Resource_h08my")
