@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bgxptcg28kmlr"]
 
 [ext_resource type="PackedScene" uid="uid://0ci8xl3ubikg" path="res://scenes/game_manager.tscn" id="1_kmxhf"]
+[ext_resource type="Script" uid="uid://de6hrwappkktm" path="res://scripts/resources/level.gd" id="2_byn7n"]
 [ext_resource type="Resource" uid="uid://bclpjr7adqis2" path="res://resources/placeholder_level.tres" id="2_u6d28"]
 
 [node name="LevelTest" type="Node2D" unique_id=216249123]
 
 [node name="GameManager" parent="." unique_id=360775614 groups=["level"] instance=ExtResource("1_kmxhf")]
-level = ExtResource("2_u6d28")
+levels = Array[ExtResource("2_byn7n")]([ExtResource("2_u6d28")])
 place_at = Vector2(0, -10)
