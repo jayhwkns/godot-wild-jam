@@ -1,3 +1,4 @@
+class_name PlayerController
 extends CharacterBody2D
 @onready var dash: Node2D = $Dash
 @onready var hurtbox: HurtBox = $Hurtbox
