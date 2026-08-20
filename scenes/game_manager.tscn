@@ -2,7 +2,15 @@
 
 [ext_resource type="Script" uid="uid://ctalbbguu2pl6" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="PackedScene" uid="uid://0jj8kojfwd47" path="res://scenes/levels/example_module.tscn" id="2_glms7"]
+[ext_resource type="Script" uid="uid://de6hrwappkktm" path="res://scripts/resources/level.gd" id="2_oo155"]
+[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://scripts/resources/items/item.gd" id="3_eaq8r"]
+
+[sub_resource type="Resource" id="Resource_sx16a"]
+script = ExtResource("2_oo155")
+modules = Array[PackedScene]([ExtResource("2_glms7")])
+metadata/_custom_type_script = "uid://de6hrwappkktm"
 
 [node name="GameManager" type="Node" unique_id=360775614]
 script = ExtResource("1_hwd4i")
-level_node = ExtResource("2_glms7")
+levels = Array[ExtResource("2_oo155")]([SubResource("Resource_sx16a")])
+place_at = Vector2(0, -5)
