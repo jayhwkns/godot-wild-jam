@@ -24,3 +24,8 @@ func update_visuals() -> void:
 		var shape = collision_shape.shape as RectangleShape2D
 		if shape:
 			shape.size = sprite.texture.get_size()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	item_data.on_pickup()
+	queue_free()

@@ -34,7 +34,7 @@ func place_player():
 	player.z_index = 1
 	player.transform.origin = place_at
 	var camera = Camera2D.new()
-	camera.zoom = Vector2(2.0,2.0)
+	camera.zoom = Vector2(3.0, 3.0)
 	
 	# Create enemy spawner and put it just in front of player
 	var enemy_spawner = enemy_spawner_scn.instantiate()

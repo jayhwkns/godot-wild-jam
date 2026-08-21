@@ -5,7 +5,7 @@ extends Node2D
 
 func _on_timer_timeout() -> void:
 	if items.is_empty() or not world_item_scene:
-		print("ERROR")
+		print("Item spawner error")
 		return
 		
 	var item_resource = items.pick_random()
