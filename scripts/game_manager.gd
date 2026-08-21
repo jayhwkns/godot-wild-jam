@@ -4,6 +4,9 @@ extends Node
 static var _instance: GameManager
 
 const player_scn = preload("res://scenes/player_controller.tscn")
+const enemy_spawner_scn = preload("res://scenes/enemy_spawner.tscn")
+const item_spawner_scn = preload("res://scenes/item_spawner.tscn")
+
 
 @export_group("Level Generation")
 @export var game_seed: String = "SEED"
@@ -28,8 +31,22 @@ func _ready() -> void:
 
 func place_player():
 	player = player_scn.instantiate() as PlayerController
+	player.z_index = 1
 	player.transform.origin = place_at
-	player.add_child(Camera2D.new())
+	var camera = Camera2D.new()
+	camera.zoom = Vector2(2.0,2.0)
+	
+	# Create enemy spawner and put it just in front of player
+	var enemy_spawner = enemy_spawner_scn.instantiate()
+	enemy_spawner.position = Vector2(350.0, 0.0)
+	
+	# Create item spawner
+	var item_spawner = item_spawner_scn.instantiate()
+	enemy_spawner.position = Vector2(350.0, 0.0)
+	
+	player.add_child(camera)
+	player.add_child(enemy_spawner)
+	
 	get_tree().root.add_child.call_deferred(player)
 
 func setup_level():

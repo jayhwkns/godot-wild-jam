@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://tvjurc3iot1s"]
 
 [ext_resource type="PackedScene" uid="uid://b1gaxmn7xuf4t" path="res://scenes/enemy_shopper.tscn" id="1_57scb"]
-[ext_resource type="PackedScene" uid="uid://ci4u1errxqjso" path="res://scenes/player_controller.tscn" id="2_8qv6w"]
+[ext_resource type="PackedScene" uid="uid://0ci8xl3ubikg" path="res://scenes/game_manager.tscn" id="1_yvng8"]
+[ext_resource type="Script" uid="uid://de6hrwappkktm" path="res://scripts/resources/level.gd" id="2_4afof"]
+[ext_resource type="Resource" uid="uid://bclpjr7adqis2" path="res://resources/placeholder_level.tres" id="3_d4bsl"]
 [ext_resource type="PackedScene" uid="uid://0qbmmvi4gljg" path="res://scenes/crowd.tscn" id="3_k47ex"]
 [ext_resource type="Script" uid="uid://dybahhf0pviqe" path="res://scripts/stats.gd" id="4_ptbya"]
 
@@ -16,6 +18,10 @@ metadata/_custom_type_script = "uid://dybahhf0pviqe"
 
 [node name="TestWorld" type="Node2D" unique_id=1436817408]
 
+[node name="GameManager" parent="." unique_id=360775614 groups=["level"] instance=ExtResource("1_yvng8")]
+levels = Array[ExtResource("2_4afof")]([ExtResource("3_d4bsl")])
+place_at = Vector2(0, -10)
+
 [node name="floor" type="StaticBody2D" parent="." unique_id=149490332]
 
 [node name="Sprite2D" type="Sprite2D" parent="floor" unique_id=1689586356]
@@ -28,14 +34,10 @@ position = Vector2(0, 0.915)
 shape = SubResource("WorldBoundaryShape2D_k6ayw")
 
 [node name="enemy_shopper" parent="." unique_id=461754436 instance=ExtResource("1_57scb")]
-position = Vector2(0, -12)
-
-[node name="player_controller" parent="." unique_id=980544437 instance=ExtResource("2_8qv6w")]
-position = Vector2(-43, -27)
-
-[node name="Camera2D" type="Camera2D" parent="player_controller" unique_id=1333485080]
-zoom = Vector2(2, 2)
+position = Vector2(101, -26)
 
 [node name="crowd" parent="." unique_id=1244541125 instance=ExtResource("3_k47ex")]
 position = Vector2(-232.665, 0)
+monitoring = false
+monitorable = false
 stats = SubResource("Resource_h08my")

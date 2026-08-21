@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b4oo263cywael"]
+
+[ext_resource type="Script" uid="uid://c5x8iordglaci" path="res://scripts/item_spawner.gd" id="1_cu1q2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_504oc"]
+
+[node name="item_spawner" type="Node2D" unique_id=1506755907]
+script = ExtResource("1_cu1q2")
+
+[node name="Timer" type="Timer" parent="." unique_id=140559581]
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914017053]
+scale = Vector2(72.25, 57.75)
+texture = SubResource("PlaceholderTexture2D_504oc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
