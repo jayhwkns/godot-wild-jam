@@ -42,10 +42,11 @@ func place_player():
 	
 	# Create item spawner
 	var item_spawner = item_spawner_scn.instantiate()
-	enemy_spawner.position = Vector2(350.0, 0.0)
+	item_spawner.position = Vector2(350.0, 0.0)
 	
 	player.add_child(camera)
 	player.add_child(enemy_spawner)
+	player.add_child(item_spawner)
 	
 	get_tree().root.add_child.call_deferred(player)
 

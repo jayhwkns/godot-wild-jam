@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://b4oo263cywael"]
 
 [ext_resource type="Script" uid="uid://c5x8iordglaci" path="res://scripts/item_spawner.gd" id="1_cu1q2"]
+[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://scripts/resources/items/item.gd" id="2_jqlno"]
+[ext_resource type="Resource" uid="uid://bhdb7cqxhkbc5" path="res://resources/items/apple.tres" id="3_f0s60"]
+[ext_resource type="Resource" uid="uid://dv6fokkcuvu36" path="res://resources/items/energy_drink.tres" id="4_ld3wv"]
+[ext_resource type="Resource" uid="uid://dwxav4kd2q3c7" path="res://resources/items/knife_set.tres" id="5_80cka"]
+[ext_resource type="Resource" uid="uid://dc2yemfvo34do" path="res://resources/items/mentors_mints.tres" id="6_j8njg"]
+[ext_resource type="Resource" uid="uid://c2wff4khbadvy" path="res://resources/items/milk.tres" id="7_4u5rl"]
+[ext_resource type="PackedScene" uid="uid://pnug6ijbiauw" path="res://scenes/world_item.tscn" id="8_f0s60"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_504oc"]
 
 [node name="item_spawner" type="Node2D" unique_id=1506755907]
 script = ExtResource("1_cu1q2")
+items = Array[ExtResource("2_jqlno")]([ExtResource("3_f0s60"), ExtResource("4_ld3wv"), ExtResource("5_80cka"), ExtResource("6_j8njg"), ExtResource("7_4u5rl")])
+world_item_scene = ExtResource("8_f0s60")
 
 [node name="Timer" type="Timer" parent="." unique_id=140559581]
 autostart = true
