@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://0ci8xl3ubikg"]
 
 [ext_resource type="Script" uid="uid://ctalbbguu2pl6" path="res://scripts/game_manager.gd" id="1_hwd4i"]
-[ext_resource type="PackedScene" uid="uid://0jj8kojfwd47" path="res://scenes/levels/example_module.tscn" id="2_glms7"]
 
 [node name="GameManager" type="Node" unique_id=360775614]
 script = ExtResource("1_hwd4i")
-level_node = ExtResource("2_glms7")

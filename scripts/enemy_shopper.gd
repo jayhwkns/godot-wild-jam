@@ -18,11 +18,14 @@ var is_taking_damage: bool = false
 var is_dealing_damage: bool = false
 
 func _ready() -> void:
+	# Don't share same stats
+	stats = stats.duplicate(true)
 	stats.setup_stats()
 	stats.faction = Stats.Faction.ENEMY_SHOPPER
 	
 	hurtbox.setup(stats)
 	hitbox.setup(stats, 0.5)
+	z_index = 1
 	$Sprite2D.texture = skins[randi() % skins.size()]
 
 func _physics_process(delta):
