@@ -11,8 +11,8 @@ extends Resource
 )
 
 @export var icon: Texture2D = preload("res://art/placeholder/PLACEHOLDER_ITEM.bmp")
-
 @export var price: int = 1
+@export var stat_buff : StatBuff
 
 var count: int = 0
 
