@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="ItemCatalog" format=3 uid="uid://d3bs43yhinma7"]
 
-[ext_resource type="Script" uid="uid://b4lb6kh7tdcql" path="res://scripts/resources/items/item.gd" id="1_c5qkr"]
 [ext_resource type="Script" uid="uid://oyivbatsd4d4" path="res://scripts/resources/item_catalog.gd" id="2_fjir5"]
 [ext_resource type="Script" uid="uid://ccgakvpnmqgeb" path="res://scripts/resources/recipe.gd" id="2_wkvqh"]
 [ext_resource type="Resource" uid="uid://bvsxybb0riqdy" path="res://resources/items/placeholder/placeholder_item.tres" id="3_4g3np"]
